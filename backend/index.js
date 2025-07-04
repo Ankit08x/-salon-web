@@ -1,26 +1,41 @@
+// index.js
 const express = require('express');
-const mongoose = require('mongoose');
+const nodemailer = require('nodemailer');
 const cors = require('cors');
-const messageRoutes = require('./routes/messageRoutes');
+const bodyParser = require('body-parser');
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
-// MongoDB Connection
-mongoose.connect('mongodb://127.0.0.1:27017/appointmentDB', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
-  console.log("✅ MongoDB connected");
-}).catch((err) => {
-  console.log("❌ MongoDB connection error:", err);
+// 📧 Gmail SMTP settings
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'yourgmail@gmail.com',        // अपनी gmail डाल
+    pass: 'your_app_password',          // App Password (नीचे बताया है कैसे बनाना)
+  },
 });
 
-// Message Routes
-app.use('/messages', messageRoutes);
+app.post('/contact-us', (req, res) => {
+  const { fullname, email, message } = req.body;
 
-// Start server
+  const mailOptions = {
+    from: email,
+    to: 'yourgmail@gmail.com',  // जहां mail जाना है
+    subject: `New Contact from ${fullname}`,
+    text: `Name: ${fullname}\nEmail: ${email}\nMessage: ${message}`,
+  };
+
+  transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Error sending message');
+    }
+    res.send('Message sent successfully');
+  });
+});
+
 app.listen(3001, () => {
-  console.log("🚀 Server is running on port 3001");
+  console.log('✅ Server running on http://localhost:3001');
 });

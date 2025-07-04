@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-//import Hero from './components/Hero';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import HeroSlider from './components/HeroSlider';
@@ -15,7 +14,7 @@ import AppointmentForm from './components/AppointmentForm';
 import About from './components/About';
 import OurServices from './components/OurServices';
 
-// HomePage component
+
 function HomePage() {
   return (
     <>
@@ -28,12 +27,11 @@ function HomePage() {
   );
 }
 
-// Main content wrapper component
 function MainContent() {
   const { isSidebarLayout } = useLayoutContext();
   
   return (
-    <div className={`${isSidebarLayout ? 'ml-80' : ''} transition-all duration-300`}>
+    <div className={`${isSidebarLayout ? 'ml-96' : ''} transition-all duration-300`}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/Contact-us" element={<Contact />} />
@@ -46,7 +44,6 @@ function MainContent() {
   );
 }
 
-// Main App function
 function App() {
   return (
     <LayoutProvider>

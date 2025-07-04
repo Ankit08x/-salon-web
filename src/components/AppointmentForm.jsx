@@ -39,13 +39,9 @@ const AppointmentForm = () => {
         backgroundPosition: 'center',
       }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
 
-      {/* Main Content Wrapper */}
       <div className="relative z-10 max-w-6xl w-full grid md:grid-cols-2 gap-10 items-center px-4">
-        
-        {/* Left Section: Title + Description */}
         <div className="text-white space-y-4">
           <h1 className="text-4xl font-bold"> Book Your Appointment Today – It’s Quick and Easy</h1>
           <p className="text-lg leading-relaxed">
@@ -53,7 +49,6 @@ const AppointmentForm = () => {
           </p>
         </div>
 
-        {/* Right Section: Form */}
         <div className="bg-white rounded-lg shadow-md p-8 w-full max-w-md">
           <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Book An Appointment</h2>
 

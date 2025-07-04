@@ -21,7 +21,7 @@ const slides = [
 
 const HeroSlider = () => {
   return (
-    <div className="relative w-full h-[550px] overflow-hidden mt-0">
+    <div className="relative w-full h-[500px] overflow-hidden mt-0">
 
       <Swiper
         navigation={{
@@ -41,9 +41,7 @@ const HeroSlider = () => {
                 backgroundImage: `url(${slide.image})`,
               }}
             >
-              <div className=" absolute inset-0 bg-black/10"></div>
-
-              {/* Content box that touches left and bottom edges */}
+              
               <div className="pt-16 absolute bottom-0 left-0 bg-white/90 p-12 shadow-lg max-w-lg  text-gray-800 z-10 w-[400px] h-[300px] flex flex-col justify-center">
                 <div className="mb-8">
                   <h1 className="text-3xl font-bold mb-4 leading-tight">{slide.title}</h1>

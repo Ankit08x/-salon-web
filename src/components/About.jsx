@@ -23,18 +23,19 @@ const aboutData = [
     image: "blog3.jpg",
     description: "In ancient times, the dyes were obtained from plants. Some of the most well known are henna (Lawsonia inermis), indigo, Cassia obovata, senna, turmeric and amla.",
   },
+  
 ];
 const About = () => {
   return (
     <section className="px-6 pt-   py-12 bg-gray-100">
       <div className="max-w-6xl  mx-auto">
-        <h1 className="text-6xl font-bold mb-14 text-gray-800"> About Us</h1>
+        <h1 className="text-6xl font-bold mb-10 text-gray-800"> About Us</h1>
         <h1 className=" text-4xl   mb-12 font-bold text-gray-600"> Blog Posts </h1>
          
        
         <div className="  grid md:grid-cols-3 gap-8">
           {aboutData.map((post, index) => (
-            <div key={index} className="bg-white w-[300px] h-full shadow-sm rounded overflow-hidden">
+            <div key={index} className="bg-white w-[270px] h-[500px] shadow-sm rounded overflow-hidden">
             <img
                 src={post.image}
                 alt={post.title}

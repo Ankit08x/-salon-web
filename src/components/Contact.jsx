@@ -16,8 +16,7 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      // Replace with your actual API endpoint
+    try  {
       const response = await fetch('http://localhost:3001/contact-us', {
         method: 'POST',
         headers: {

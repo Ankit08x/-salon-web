@@ -55,7 +55,7 @@ const services = [
 
 const OurServices = () => {
   return (
-    <div className="py-10 px-4 md:px-12 lg:px-24 bg-white">
+    <div className="py-10 px-4 md:px-10 lg:px-8 bg-white">
       <h2 className="text-5xl font-bold text-gray-800 mb-12">Our Services</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service, index) => (
@@ -78,8 +78,8 @@ const OurServices = () => {
                 {service.title}
               </h3>
               <p className="text-sm text-gray-600 mb-3">{service.description}</p>
-              <button className="text-sm font-medium text-pink-500 hover:underline">
-                More info
+              <button className="text-sm font-medium border-b-2 border-pink-500 text-pink-500 duration-200 hover:scale-110">
+                More info 
               </button>
             </div>
           </div>
