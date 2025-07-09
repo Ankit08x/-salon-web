@@ -1,5 +1,12 @@
 import React from 'react';
-import { FaCut, FaSpa, FaPumpSoap, FaMagic, FaBath, FaLeaf } from 'react-icons/fa';
+import {
+  FaCut,
+  FaSpa,
+  FaPumpSoap,
+  FaMagic,
+  FaBath,
+  FaLeaf
+} from 'react-icons/fa';
 
 const services = [
   {
@@ -40,45 +47,57 @@ const services = [
   }
 ];
 
-const Services = () => {
+const ServiceGallery = () => {
   return (
-    
-    <div className=" px-4 py-10 bg-gray-100">
-      <div className=" mb-10 px-4 max-w-4xl mx-auto">
-        <h2 className=" font-poppins font-semibold text-4xl border-l-4 border-pink-500 pl-4">
-          Our Services
-        </h2>
-        <p className=" italic text-gray-600  border-l-4 border-red-500 pl-4">
-          Our salon offers a wide variety of beauty services    
-        </p>
-      </div>
+    <section className="w-full bg-pink-50 py-16 px-4 sm:px-6 lg:px-12 2xl:px-24 transition-all duration-300">
+      <div className="max-w-screen-xl mx-auto">
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 max-w-4xl mx-auto px-4">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="relative overflow-hidden  shadow-lg cursor-pointer group"
-          >
-            <img
-              src={service.img}
-              alt={service.title}
-              className=" w-full h-52 object-cover transition-transform duration-500 transform group-hover:scale-110"
-            />
-            <div className="bg-black/60 absolute inset-0 flex flex-col items-center justify-center">
-              {service.icon}
-              <p className=" text-white mt-2 text-lg font-semibold">{service.title}</p>
-            </div>
-            <div className=" absolute inset-0 bg-pink-600 bg-opacity-0 group-hover:bg-opacity-100 transition-all duration-500 flex items-center justify-center">
-              <p className="text-white text-center opacity-0 group-hover:opacity-100 px-4 transition-all duration-500">
-                {service.description}
-              </p>
-            </div>
+        {/* Header */}
+        <div className="flex items-start gap-3 mb-12">
+          <div className="w-[4px] min-h-[100px] bg-gradient-to-b from-pink-500 to-purple-500 rounded-sm" />
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+              Our Gallery Services
+            </h2>
+            <p className="text-gray-500 italic text-base sm:text-lg mt-1">
+              Our salon offers a wide variety of beauty & self-care treatments.
+            </p>
           </div>
-        ))}
+        </div>
+
+        {/* Gallery Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="relative group overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 animate-fadeIn"
+            >
+              {/* Image */}
+              <img
+                src={service.img}
+                alt={service.title}
+                className="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+
+              {/* Icon + Title Overlay */}
+              <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center z-10 transition-all duration-300">
+                <div className="mb-2">{service.icon}</div>
+                <h3 className="text-white text-lg font-semibold">{service.title}</h3>
+              </div>
+
+              {/* Description Hover Overlay */}
+              <div className="absolute inset-0 bg-pink-600 bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-500 flex items-center justify-center p-6 text-center z-20">
+                <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {service.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
-    </div>
-   
+    </section>
   );
 };
 
-export default Services;
+export default ServiceGallery;

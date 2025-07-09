@@ -33,36 +33,56 @@ const testimonials = [
 
 const TestimonialSlider = () => {
   return (
-    <div className="uto  pb-12 pt-4 bg-gray-100">
-      <Swiper
-        modules={[Autoplay]}
-        spaceBetween={30}
-        slidesPerView={1}
-        loop={true}
-        autoplay={{
-          delay: 1100,
-          disableOnInteraction: false,
-        }}
-        breakpoints={{
-          640: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 }
-        }}
-      >
-        {testimonials.map((item, index) => (
-          <SwiperSlide key={index}>
-            <div className="p-4  max-w-md bg-gray-200 shadow-inner rounded-md mx-2 text-center w-auto h-[300px] flex flex-col justify-between">
-              <p className="pt-2 text-gray-600 italic mb-4">{item.text}</p>
-              <div className="pb-8 flex flex-col items-center mt-4">
-                <img src={item.image} alt={item.name} className="w-16 h-16 border-x-4 border-y-4 hover:scale-110  duration-300 border-pink-600 rounded-full mb-2" />
-                <h3 className="font-semibold text-lg">{item.name}</h3>
-                <p className="text-sm text-gray-500">{item.position}</p>
+    <section className="w-full min-h-screen bg-pink-50 py-16 px-4 sm:px-6 lg:px-12 2xl:px-24 transition-all duration-300">
+      <div className="max-w-screen-xl mx-auto">
+        
+        {/* Matching Section Header */}
+        <div className="flex items-start gap-3 mb-12">
+          <div className="w-[4px] min-h-[100px] bg-gradient-to-b from-pink-500 to-purple-500 rounded-sm" />
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+              What Our Clients Say
+            </h2>
+            <p className="text-gray-500 italic text-base sm:text-lg mt-1">
+              Hear from our happy customers across the globe.
+            </p>
+          </div>
+        </div>
+
+        {/* Swiper Carousel */}
+        <Swiper
+          modules={[Autoplay]}
+          loop={true}
+          spaceBetween={30}
+          slidesPerView={1}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
+          {testimonials.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="bg-white rounded-2xl shadow-md hover:shadow-xl p-6 h-full flex flex-col justify-between transition-all duration-300">
+                <p className="text-gray-700 italic text-sm sm:text-base mb-6">
+                  “{item.text}”
+                </p>
+                <div className="flex flex-col items-center">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-20 h-20 object-cover rounded-full border-4 border-pink-500 hover:scale-105 transition-transform duration-300 mb-3"
+                  />
+                  <h4 className="text-lg font-semibold text-gray-800">{item.name}</h4>
+                  <span className="text-sm text-gray-500">{item.position}</span>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
   );
 };
 

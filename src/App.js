@@ -13,6 +13,9 @@ import Testimonials from './components/Testimonials';
 import AppointmentForm from './components/AppointmentForm';
 import About from './components/About';
 import OurServices from './components/OurServices';
+import BeautyGallery from './components/GalleryReal';
+import NewServices from './components/NewService';
+import ScrollToTop from './components/ScrollToTop';
 
 
 function HomePage() {
@@ -20,9 +23,12 @@ function HomePage() {
     <>
       <Navbar />
       <HeroSlider />
+      <BeautyGallery />
+      <NewServices/>
       <ServiceGallery />
       <BlogPostCard />
       <Testimonials />
+      
     </>
   );
 }
@@ -38,6 +44,10 @@ function MainContent() {
         <Route path="/App" element={<AppointmentForm />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/OurServices" element={<OurServices />} />
+        <Route path="/GalleryReal" element={<BeautyGallery />} />
+        <Route path="/NewServices" element={<NewServices />} />
+        
+
       </Routes>
       <Footer />
     </div>
@@ -48,8 +58,10 @@ function App() {
   return (
     <LayoutProvider>
       <Router>
+        <ScrollToTop />
         <Header/>
         <MainContent />
+        
       </Router>
     </LayoutProvider>
   );
