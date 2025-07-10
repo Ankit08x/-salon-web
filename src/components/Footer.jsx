@@ -16,7 +16,6 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white text-sm w-full overflow-hidden">
-      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-96 h-96 bg-purple-400 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2" />
@@ -24,16 +23,12 @@ export default function Footer() {
         <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10"></div>
       </div>
 
-      {/* Main Grid Section */}
-      <div className="relative max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-        {/* Logo & Social Icons */}
+     <div className="relative max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
         <div className="flex flex-col items-start lg:col-span-2">
           <div className="relative mb-6">
-            {/* Logo Placeholder */}
             <div className="flex items-center h-16">
               {" "}
-              {/* Fixed height for navbar */}
-              <img
+             <img
                 src={Flogo}
                 alt="Logo"
                 className="h-10 sm:h-12 md:h-16 lg:h-48 w-auto object-contain rounded-full"
@@ -70,8 +65,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* About Us */}
-        <div className="space-y-4">
+       <div className="space-y-4">
           <h4 className="font-bold text-lg mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
             About Us
           </h4>
@@ -89,7 +83,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Useful Links */}
         <div className="space-y-4">
           <h4 className="font-bold text-lg mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
             Useful Links
@@ -110,8 +103,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Our Salons */}
-        <div className="space-y-4">
+         <div className="space-y-4">
           <h4 className="font-bold text-lg mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
             Our Salons
           </h4>
@@ -127,8 +119,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Categories */}
-
+        
         <div className="space-y-4">
           <Link to={"/NewServices"}>
             <h4 className="font-bold text-lg mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
@@ -157,8 +148,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Contact Info Section */}
-      <div className="relative max-w-7xl mx-auto px-4 pt-2 pb-12">
+     <div className="relative max-w-7xl mx-auto px-4 pt-2 pb-12">
         <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-8 shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Contact Details */}

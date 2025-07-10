@@ -31,13 +31,10 @@ const About = () => {
   return (
     <section className="px-6 py-16 bg-gradient-to-br from-pink-50 via-white to-purple-50">
       <div className="max-w-7xl mx-auto">
-        {/* Heading Section */}
-        <div className="flex items-start gap-4 mb-14">
-          {/* Vertical Line */}
+         <div className="flex items-start gap-4 mb-14">
           <div className="w-1 h-14 bg-gradient-to-b from-pink-500 to-purple-500 rounded"></div>
 
-          {/* Text Content */}
-          <div>
+           <div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900">About Us</h1>
             <p className="text-gray-600 italic text-lg mt-1">
               Explore what we offer to enhance your beauty and relaxation.
@@ -45,7 +42,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Blog Cards */}
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
           {aboutData.map((post, index) => (
             <div

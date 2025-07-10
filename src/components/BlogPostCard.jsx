@@ -25,13 +25,10 @@ const BlogPosts = () => {
   return (
     <section className="w-full min-h-screen bg-pink-50 px-4 sm:px-6 lg:px-12 py-16 transition-all duration-300">
       <div className="max-w-screen-xl mx-auto">
-        {/* Section Heading */}
         <div className="flex items-start gap-3 mb-12">
-          {/* Vertical Gradient Line */}
           <div className="w-[4px] h-full min-h-[100px] bg-gradient-to-b from-pink-500 to-purple-500 rounded-sm" />
 
-          {/* Text Content */}
-          <div>
+           <div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
               Latest Blog Posts
             </h2>
@@ -41,7 +38,6 @@ const BlogPosts = () => {
           </div>
         </div>
 
-        {/* Blog Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post, index) => (
             <div

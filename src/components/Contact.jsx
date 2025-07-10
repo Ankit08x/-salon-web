@@ -42,7 +42,6 @@ const ContactUs = () => {
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
       <div className="relative z-10 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-        {/* Left Side: Info */}
         <div className="text-white space-y-6 px-2 md:px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center md:text-left">Contact Us</h2>
           <p className="text-gray-300 max-w-md">
@@ -74,7 +73,6 @@ const ContactUs = () => {
           </div>
         </div>
 
-        {/* Right Side: Form */}
         <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-xl mx-auto">
           <h3 className="text-2xl font-bold mb-6 text-gray-800 text-center">Send Message</h3>
           <form className="space-y-6" onSubmit={handleSubmit}>
