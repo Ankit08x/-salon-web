@@ -22,14 +22,23 @@ const ContactUs = () => {
         body: JSON.stringify(form),
       });
 
+      const result = await response.json();
+      console.log("✅ Response:", result); 
       if (response.ok) {
         setStatus("✅ Message sent successfully!");
         setForm({ fullname: '', email: '', message: '' });
+
+        if (result.contactDetails) {
+          console.log("👤 Name:", result.contactDetails.fullname);
+          console.log("📧 Email:", result.contactDetails.email);
+          console.log("💬 Message:", result.contactDetails.message);
+          console.log("📅 Sent At:", new Date(result.contactDetails.sentAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
+        }
       } else {
         setStatus("❌ Failed to send message.");
       }
     } catch (error) {
-      console.error(error);
+      console.error("❌ Error while sending message:", error);
       setStatus("❌ Failed to send message.");
     }
   };

@@ -8,7 +8,7 @@ export const LayoutProvider = ({ children }) => {
   useEffect(() => {
     const checkZoomLevel = () => {
       const zoom = window.devicePixelRatio;
-      setIsSidebarLayout(zoom < 1); // for zoom < 100%
+      setIsSidebarLayout(zoom < 1); 
     };
 
     checkZoomLevel();

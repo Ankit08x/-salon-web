@@ -36,7 +36,6 @@ const TestimonialSlider = () => {
     <section className="w-full min-h-screen bg-pink-50 py-16 px-4 sm:px-6 lg:px-12 2xl:px-24 transition-all duration-300">
       <div className="max-w-screen-xl mx-auto">
         
-        {/* Matching Section Header */}
         <div className="flex items-start gap-3 mb-12">
           <div className="w-[4px] min-h-[100px] bg-gradient-to-b from-pink-500 to-purple-500 rounded-sm" />
           <div>
@@ -49,7 +48,6 @@ const TestimonialSlider = () => {
           </div>
         </div>
 
-        {/* Swiper Carousel */}
         <Swiper
           modules={[Autoplay]}
           loop={true}

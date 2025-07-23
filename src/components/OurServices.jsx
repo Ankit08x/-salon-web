@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import {
   FaHeart,
   FaCut,
@@ -58,7 +58,7 @@ const OurServices = () => {
     <section className="w-full bg-pink-50 py-16 px-4 sm:px-6 lg:px-12 2xl:px-24 transition-all duration-300">
       <div className="max-w-screen-xl mx-auto">
 
-        {/* Gradient Heading Like Blog Section */}
+       
         <div className="flex items-start gap-3 mb-12">
           <div className="w-[4px] min-h-[100px] bg-gradient-to-b from-pink-500 to-purple-500 rounded-sm" />
           <div>
@@ -71,7 +71,6 @@ const OurServices = () => {
           </div>
         </div>
 
-        {/* Service Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
@@ -108,3 +107,17 @@ const OurServices = () => {
 };
 
 export default OurServices;
+*/
+
+import React from 'react'
+import NewServices from './NewService'
+
+const OurServices = () => {
+  return (
+    <>
+    <NewServices/>
+    </>
+  )
+}
+
+export default OurServices

@@ -46,7 +46,7 @@ const Header = () => {
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${bgImg})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/70 to-pink-600/90 z-10 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-gradient-to-b from-sky-300 to-pink-600/90 z-10 backdrop-blur-sm" />
 
       
 
@@ -62,7 +62,7 @@ const Header = () => {
             <img
               src={logo}
               alt="Logo"
-              className="h-10 sm:h-12 md:h-16 lg:h-44 w-auto object-contain rounded-full"
+              className="h-10 sm:h-12 md:h-16 lg:h-56 w-auto object-contain rounded-full brightness-100"
             />
           </div>
 

@@ -37,7 +37,9 @@ function MainContent() {
   const { isSidebarLayout } = useLayoutContext();
   
   return (
-    <div className={`${isSidebarLayout ? 'ml-96' : ''} transition-all duration-300`}>
+    <div
+    //className={`${isSidebarLayout ? 'ml-96' : ''} transition-all duration-300`}
+     >
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/Contact-us" element={<Contact />} />

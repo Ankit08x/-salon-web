@@ -1,5 +1,5 @@
 import React from "react";
-import Flogo from "../assets/smo_logo.png";
+import Flogo from "../assets/footerlogo.png";
 import {
   Facebook,
   Instagram,
@@ -11,27 +11,33 @@ import {
   Clock,
   MessageSquareText,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+
+const Link = ({ to, children, className, ...props }) => (
+  <a href={to} className={className} {...props}>
+    {children}
+  </a>
+);
 
 export default function Footer() {
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white text-sm w-full overflow-hidden">
+      {/* Background Effects */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-96 h-96 bg-purple-400 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2" />
-
         <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10"></div>
       </div>
 
-     <div className="relative max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+      {/* Main Footer Content */}
+      <div className="relative max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        {/* Logo and Description */}
         <div className="flex flex-col items-start lg:col-span-2">
           <div className="relative mb-6">
             <div className="flex items-center h-16">
-              {" "}
-             <img
+              <img
                 src={Flogo}
                 alt="Logo"
-                className="h-10 sm:h-12 md:h-16 lg:h-48 w-auto object-contain rounded-full"
+                className="h-10 sm:h-12 md:h-16 lg:h-60 w-auto object-contain rounded-full"
               />
             </div>
           </div>
@@ -65,45 +71,51 @@ export default function Footer() {
           </div>
         </div>
 
-       <div className="space-y-4">
+        {/* About Us */}
+        <div className="space-y-4">
           <h4 className="font-bold text-lg mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
             About Us
           </h4>
           <ul className="space-y-3">
             <li>
-              <a href="#" className="hover:text-pink-400 transition-all">
+              <Link
+                to="/our-story"
+                className="hover:text-pink-400 transition-all"
+              >
                 Our Story
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-pink-400 transition-all">
+              <Link to="/blogs" className="hover:text-pink-400 transition-all">
                 Blogs
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
 
+        {/* Useful Links */}
         <div className="space-y-4">
           <h4 className="font-bold text-lg mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
             Useful Links
           </h4>
           <ul className="space-y-3">
             {[
-              "Privacy Policy",
-              "Return Policy",
-              "Terms & Conditions",
-              "Contact Us",
-            ].map((link) => (
-              <li key={link}>
-                <a href="#" className="hover:text-pink-400 transition-all">
-                  {link}
-                </a>
+              { label: "Privacy Policy", path: "/privacy-policy" },
+              { label: "Return Policy", path: "/return-policy" },
+              { label: "Terms & Conditions", path: "/terms-conditions" },
+              { label: "Contact Us", path: "/contact-us" },
+            ].map(({ label, path }) => (
+              <li key={label}>
+                <Link to={path} className="hover:text-pink-400 transition-all">
+                  {label}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
 
-         <div className="space-y-4">
+        {/* Our Salons */}
+        <div className="space-y-4">
           <h4 className="font-bold text-lg mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
             Our Salons
           </h4>
@@ -113,143 +125,149 @@ export default function Footer() {
                 key={city}
                 className="hover:text-pink-400 transition-all cursor-pointer"
               >
-                {city}
+                <Link to={`/salon/${city.toLowerCase()}`}>{city}</Link>
               </li>
             ))}
           </ul>
         </div>
 
-        
+        {/* Services */}
         <div className="space-y-4">
-          <Link to={"/NewServices"}>
+          <Link to="/NewServices">
             <h4 className="font-bold text-lg mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
               Services
             </h4>
-            <ul className="space-y-3">
-              {[
-                "Waxing",
-                "Facial",
-                "Bridal makeup",
-                "Clean up",
-                "Make up",
-                "Skin",
-                "Hairs",
-                "Nails",
-              ].map((cat) => (
-                <li
-                  key={cat}
-                  className="hover:text-pink-400 transition-all cursor-pointer"
-                >
-                  {cat}
-                </li>
-              ))}
-            </ul>
           </Link>
+          <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+            {[
+              "Waxing",
+              "Facial",
+              "Bridal makeup",
+              "Clean up",
+              "Make up",
+              "Skin",
+              "Hairs",
+              "Nails",
+            ].map((service) => (
+              <li
+                key={service}
+                className="hover:text-pink-400 transition-all cursor-pointer"
+              >
+                <Link
+                  to={`/services/${service.toLowerCase().replace(/\s+/g, "-")}`}
+                >
+                  {service}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
-     <div className="relative max-w-7xl mx-auto px-4 pt-2 pb-12">
-        <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-8 shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Contact Details */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-                Get In Touch
-              </h3>
-              <div className="grid sm:grid-cols-2 gap-6 text-sm">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <Phone className="text-pink-400" size={18} />
-                    <span className="text-gray-300">+91 98765 43210</span>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <Mail className="text-pink-400" size={18} />
-                    <span className="text-gray-300">
-                      subhyamakeovvers@gmail.com
-                    </span>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <MapPin className="text-pink-400" size={18} />
-                    <span className="text-gray-300">
-                      123 Beauty Lane, City Center
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <Clock className="text-pink-400" size={18} />
-                    <span className="text-gray-300">Mon-Sat: 10am - 8pm</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Button + My Account */}
-            <div className="space-y-6">
-              <Link to={"/Contact-us"}>
-                <button className="w-full sm:w-auto bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group">
-                  <MessageSquareText size={18} />
-                  Contact Us
+      {/* Get in Touch Section - Blue Line Area */}
+      <div className="relative border-t border-cyan-400/30 backdrop-blur-sm bg-gradient-to-r from-cyan-900/20 to-blue-900/20 text-white py-2 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            {/* Left side - Button */}
+            <div className="flex-shrink-0">
+              <Link to="/Contact-us">
+                <button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 group">
+                  <MessageSquareText size={20} />
+                  Get In Touch
+                  <div className="w-0 group-hover:w-2 h-0.5 bg-white transition-all duration-300"></div>
                 </button>
               </Link>
+            </div>
+            {/* className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6  gap-y-3 text-sm" */}
 
-              <div className="space-y-4">
-                <h4 className="font-bold text-lg bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-                  My Account
-                </h4>
-                <ul className="space-y-3">
-                  {["Profile", "Orders", "Addresses"].map((item) => (
-                    <li key={item}>
-                      <a
-                        href="#"
-                        className="hover:text-pink-400 transition-all"
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+            {/* Right side – Contact Details */}
+            <div className="flex-1 lg:ml-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6  gap-y-3 text-sm">
+                {[
+                  {
+                    icon: (
+                      <Phone size={16} className="text-cyan-400 shrink-0" />
+                    ),
+                    label: "+91 98765 43210",
+                    truncate: false,
+                  },
+                  {
+                    icon: <Mail size={16} className="text-cyan-400 shrink-0" />,
+                    label: "subhyamakeovvers@gmail.com",
+                    truncate: false,
+                  },
+                  {
+                    icon: (
+                      <MapPin size={16} className="text-cyan-400 shrink-0" />
+                    ),
+                    label: "123 Beauty Lane, City Center",
+                    truncate: true, // single line, don't break
+                  },
+                  {
+                    icon: (
+                      <Clock size={16} className="text-cyan-400 shrink-0" />
+                    ),
+                    label: "Mon–Sat: 10am – 8pm",
+                    truncate: false,
+                  },
+                ].map(({ icon, label, truncate }) => (
+                  <div
+                    key={label}
+                    className="flex items-center gap-2 min-w-0 w-full"
+                  >
+                    {icon}
+                    <span
+                      className={`
+            text-gray-300
+            ${truncate ? "whitespace-nowrap overflow-hidden text-ellipsis" : ""}
+          `}
+                    >
+                      {label}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Strip */}
-      <div className="relative border-t border-white/10 backdrop-blur-sm bg-white/5 text-gray-400 text-xs py-6 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      {/* Bottom Copyright Strip */}
+      <div className="relative border-t border-white/10 backdrop-blur-sm bg-black/20 text-gray-400 text-xs py-4 px-4">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
           <p>© 2025 Honasa Consumer Limited. All rights reserved.</p>
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <span className="text-white/80 font-normal">
+          <div className="flex items-end">
+            <p className="text-white/60 ml-2 sm:ml-72">
               100% Payment Protection, Easy Return Policy
-            </span>
-            <div className="flex space-x-3">
-              {[
-                {
-                  src: "https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png",
-                  alt: "Visa",
-                },
-                {
-                  src: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg",
-                  alt: "MasterCard",
-                },
-                {
-                  src: "https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg",
-                  alt: "Amex",
-                },
-              ].map(({ src, alt }) => (
-                <div
-                  key={alt}
-                  className="backdrop-blur-sm bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-all duration-300"
-                >
-                  <img
-                    src={src}
-                    alt={alt}
-                    className="h-4 opacity-80 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              ))}
-            </div>
+            </p>
+          </div>
+
+          <div className="flex space-x-4">
+            {[
+              {
+                src: "https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png",
+                alt: "Visa",
+              },
+              {
+                src: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg",
+                alt: "MasterCard",
+              },
+              {
+                src: "https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg",
+                alt: "American Express",
+              },
+            ].map(({ src, alt }) => (
+              <div
+                key={alt}
+                className="backdrop-blur-sm bg-white/10 p-1 rounded-lg hover:bg-white/20 transition-all duration-300 hover:scale-105"
+              >
+                <img
+                  src={src}
+                  alt={alt}
+                  className="h-4 opacity-80 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -13,13 +13,14 @@ router.post('/', async (req, res) => {
     });
   }
  try {
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'akv63235@gmail.com',  
-        pass: 'hbrv zhuo zkeo lyuy',
-      }
-    });
+  const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS 
+  }
+});
+
   try {
       await transporter.verify();
       console.log('✅ Gmail SMTP connection verified');
@@ -28,8 +29,9 @@ router.post('/', async (req, res) => {
     }
 
     const mailOptions = {
-      from: 'akv63235@gmail.com',
-      to: 'akv63235@gmail.com',     
+      from: process.env.EMAIL_USER,
+to: process.env.EMAIL_USER,
+   
       subject: `🎯 New Salon Appointment from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
